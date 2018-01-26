@@ -5,7 +5,7 @@
 
 import os
 import sys
-import sqlite3
+from ctypes import *
 
 class CsqPass:
     def __banner(self):
@@ -24,8 +24,6 @@ CsqPass:
     __PassFile = []
     __passPath = ''
     __dbPath = ''
-    __sql = 'CREATE TABLE ATTACK(ID INT)'
-
 
     def __getPara(self):
         self.__dbPath = sys.argv[1]
@@ -60,11 +58,11 @@ CsqPass:
         self.__PassFile = self.__readFile(fileName=fileName)
         return self.__PassFile
 
-
     def attack(self):
-        with sqlite3.connect(self.__dbPath) as db:
-            cursor = db.cursor()
+        self.atk()
 
+    def __atk(self):
+        pass
 
 
 
@@ -77,7 +75,11 @@ CsqPass:
 
 
 if __name__ == '__main__':
-    c = CsqPass()
-    c.test()
+    # c = CsqPass()
+    # c.test()
+
+
+
+
 
 
